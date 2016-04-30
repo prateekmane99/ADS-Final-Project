@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<link rel="stylesheet" href="../CSS/pothhole.css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+   <!-- Bootstrap Core CSS -->
+    <link href="../bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script type="text/javascript">
+
+  $(function () {
+
+        var DS_type = ""
+     $( document ).ready(function() {
+       // DS_type = DS_type.concat(window.location.search.substring(1).split('=')[1])
+        //console.log(DS_type)
+    });
+
+
+    $("#azure_Predict").bind("click", function () {
+      //console.log("INSIDE CLICK");  
+     
+          document.getElementById('op').value = " ";
+          var acc = document.getElementById("account").value;
+          console.log(acc);
+          var variable = document.getElementById("variable").value;
+          console.log(variable);
+          //var kw = document.getElementById("kwh").value;
+          var dd = document.getElementById("day");
+          var d = dd.options[dd.selectedIndex].value;
+          console.log(d);
+           var seasn = document.getElementById("season").value;
+          console.log(seasn);
+             var wkday = document.getElementById("weekday").value;
+          console.log(wkday);
+          var mnthh = document.getElementById("month");
+          var mnth = mnthh.options[mnthh.selectedIndex].value;
+          console.log(mnth);
+
+
+
+          var reason = "Street Cleaning"
+          var type = "Requests for Street Cleaning"
+          var dept = "PWDx"
+          var zipcde = "02120"
+         
+
+
+          var flagg = document.getElementById("flg");
+          var flag = flagg.options[flagg.selectedIndex].value;
+          //var flag = "1"
+
+          var opendtee = document.getElementById("day");
+          var opendte = opendtee.options[opendtee.selectedIndex].value;
+		  //var opendte = "03"
+
+		  var openmnthh = document.getElementById("month");
+          var openmnth = openmnthh.options[openmnthh.selectedIndex].value;
+          //var openmnth = "04"
+
+          var openwyrr = document.getElementById("year");
+          var openwyr = openwyrr.options[openwyrr.selectedIndex].value;
+          //var openwyr = "2013"
+
+          var openweekdaynum = "2"
+
+         
+       
+          var page_type = "IP"
+
+                $.ajax(
+                  {
+
+                    url: 'http://localhost:4030/query1?v1=' + reason + '&v2=' + type + '&v3=' + dept + '&v3_=' + zipcde + '&v4=' + flag + '&v5=' + opendte + '&v51=' +         openmnth + '&v52=' + openwyr + '&v53=' + openweekdaynum + '&v6=' + DS_type + '&v7=' + page_type,
+                    //url: 'http://localhost:4030/query1?v1=' + acc + '&v2=' + variable + '&v3=' + seasn + '&v3_=' + wkday + '&v4=' + d + '&v5=' + mnth + '&v6=' + DS_type + '&v7=' + page_type,
+                    type: 'GET',
+                    async : true,
+                    success: function(data) {
+                      console.log("DATA is " , data);
+                      document.getElementById("op").value = Math.round(data) + " days";
+                     
+                    },
+                    error: function(xhr, status, error) 
+                    {
+                                          console.log("xhr" , xhr);
+                                          console.log("xhr" , status);
+                                          console.log("xhr" , error);
+                    }
+                  });
+           
+});
+});
+
+</script> 
+
+<style>
+body {
+    background-color: #f8f8f8;
+}
+
+#wrapper {
+    width: 100%;
+}
+
+#page-wrapper {
+    padding: 0 15px;
+    min-height: 568px;
+    background-color: #fff;
+}
+
+@media(min-width:768px) {
+    #page-wrapper {
+        position: inherit;
+        margin: 0 0 0 250px;
+        padding: 0 30px;
+        border-left: 1px solid #e7e7e7;
+    }
+}
+.sidebar .sidebar-nav.navbar-collapse {
+
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.sidebar .sidebar-search {
+    padding: 15px;
+	
+}
+
+.sidebar ul li {
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.sidebar ul li a.active {
+    background-color: #eee;
+}
+
+.sidebar .arrow {
+    float: right;
+}
+
+.sidebar .fa.arrow:before {
+    content: "\f104";
+}
+
+.sidebar .active>a>.fa.arrow:before {
+    content: "\f107";
+}
+
+.sidebar .nav-second-level li,
+.sidebar .nav-third-level li {
+    border-bottom: 0!important;
+}
+
+.sidebar .nav-second-level li a {
+    padding-left: 37px;
+}
+
+.sidebar .nav-third-level li a {
+    padding-left: 52px;
+}
+
+@media(min-width:768px) {
+    .sidebar {
+        z-index: 1;
+        position: absolute;
+        width: 250px;
+        margin-top: 51px;
+    }
+.btn-outline {
+    color: inherit;
+    background-color: transparent;
+    transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+
+.btn-success.btn-outline {
+    color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+    color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+    color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+    color: #d9534f;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+    color: #fff;
+}
+	
+	.show-grid [class^=col-] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #ddd;
+    background-color: #eee!important;
+}
+
+.show-grid {
+    margin: 20px 0;
+}
+
+.huge {
+    font-size: 10px;
+	
+}
+
+#page-wrapper{
+margin-top:50px;
+}
+.Predict{
+margin-top:100px;}
+
+#reason{
+text-align:center;
+margin-left:200px;
+float:left;
+}
+
+#month1{
+text-align:center;
+margin-left:200px;
+float:left;
+}
+
+#type{
+text-align:center;
+margin-left:200px;
+float:left;
+}
+
+#Date1{
+text-align:center;
+margin-left:200px;
+float:left;
+}
+
+#zipcode{
+text-align:center;
+margin-left:200px;
+float:left;
+}
+
+#Flag{
+text-align:center;
+margin-left:200px;
+float:left;
+}
+
+#week{
+text-align:center;
+margin-left:200px;
+float:left;
+}
+
+
+
+<!--#day1{
+margin-right:380px;
+margin-top:5px;}-->
+
+.zipcode{
+margin-right:100px;
+}
+
+.flag{
+margin-right:100px;
+margin-top:5px;
+}
+
+.week{
+margin-right:100px;
+margin-top:5px;
+}
+
+
+.tmonth{
+margin-right:100px;
+}
+
+.Rtext{
+margin-right:100px;
+}
+.Ttext{
+margin-right:100px;
+}
+
+.date{
+margin-right:150px;
+float:left;
+}
+
+.month{
+margin-right:200px;}
+</style>
+
+
+</head>
+<body>
+	<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+          <a href="https://311.boston.gov" class="brand"><h1><b>BOS:311</b></h1></a>
+      </div><!-- .container -->
+    </div><!-- .navbar-inner -->
+  </div>
+		
+		
+		<div class = "Predict">
+			<div class ="row">
+				<div class = "col-lg-12 col-md-3">
+				<div class ="panel" text-align = "center">
+				<div class = "col-lg-2 col-md-3" id = "reason">
+				<p id = "reason"><b>Reason</b></div><div class = "Rtext"></p><input type="textbox" id ="account"/></div>
+				
+				<div class = "col-lg-2 col-md-3" id = "type">
+				<p id = "reason"><b>Type</b></div><div class = "Ttext"></p><input type="textbox" id ="account"/></div>
+				
+				<div class = "col-lg-2 col-md-3" id = "zipcode">
+				<p id = "reason"><b>Zipcode</b></div><div class = "Ttext"></p><input type="textbox" id ="account"/></div>
+				
+				<div class = "col-lg-2 col-md-3" id = "Flag">
+				<p id = "reason"><b>Flag</b></div><div class = "flag"><select name="day" id="flg"></p>
+						<option value="1">01</option>
+						<option value="2">02</option>
+						</select></div>
+				
+				
+				<div class = "row">
+				
+				<div class = "col-lg-2 col-md-3" id = "nik">
+				<div class = "date">
+				<b>Date</b><select name="day" id="day">
+						<option value="1">01</option>
+						<option value="2">02</option>
+						<option value="3">03</option>
+						<option value="4">04</option>
+						<option value="5">05</option>
+						<option value="6">06</option>
+						<option value="7">07</option>
+						<option value="8">08</option>
+						<option value="9">09</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">30</option>
+						<option value="31">31</option>
+					</select></div></div>
+					
+					<div class = "col-lg-2 col-md-3">
+						<div class = "year">
+					<b>Month</b><select name="month" id="month">
+						<option value="01">01</option>
+						<option value="02">02</option>
+						<option value="03">03</option>
+						<option value="04">04</option>
+						<option value="05">05</option>
+						<option value="06">06</option>
+						<option value="07">07</option>
+						<option value="08">08</option>
+						<option value="09">09</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+					</select></div></div>
+					
+					
+					
+					
+					
+					<div class = "col-lg-2 col-md-3">
+						<div class = "year">
+					<b>Year</b><select name="year" id="year">
+						<option value="1">2014</option>
+						<option value="2">2015</option>
+						<option value="2">2016</option>
+						
+					</select></div></div>
+					
+					<div class = "row">
+					<div class = "Predict">
+<div class = "col-lg-12 col-md-3" align = "center">
+
+<input type="button" id="azure_Predict" value="Predict" />
+
+<input type="textbox" id ="op"/>
+			</div></div></div>
+					</div>
+					
+					</div>
+			</div>
+			</div>
+			</div>
+		
+			
+</body>

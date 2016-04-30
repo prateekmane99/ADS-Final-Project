@@ -1,0 +1,11 @@
+OnTime_Status,REASON,TYPE,Department,fire_district,pwd_district,city_council_district,neighborhood_services_district,ward,precinct,LOCATION_STREET_NAME,Source,daysTargeted,flag,Temp(F)avg,Humidity(%)avg,Visibility(mi)avg,Wind(mph)avg
+OVERDUE,Street  & Cleaning,Sign Repair,BTDT,3,1C,2,4,3,308,INTERSECTION Devonshire St n Summer St,Constituent Call,14,0,66,73,10,21
+ONTIME,Street Cleaning,Requests for Street Cleaning,PWDx,1,9,1,1,1,107,166 Brooks St,Employee Generated,2,0,59,89,4,10
+OVERDUE,Street Lights,Street Light Outages,PWDx,3,1A,1,2,2,204,191-193 Bunker Hill St,Constituent Call,14,0,62,95,3,6
+OVERDUE,Street Cleaning,Traffic Signal Repair,BTDT,4,1C,2,6,5,501,INTERSECTION Arlington St j Herald St,Self Service,5,0,55,90,5,8
+ONTIME,Sanitation,Schedule a Bulk Item Pickup,PWDx,6,1C,7,13,8,806,115 Southampton St,Employee Generated,NA,0,48,61,10,16
+OVERDUE,Street Cleaning,Request for Snow Plowing,PWDx,7,10B,7,13,8,803,171 Eustis St,Constituent Call,4,0,18,76,3,21
+OVERDUE,Street Cleaning,Traffic Signal Repair,INFO,6,5,2,5,7,706,582 Dorchester Ave,Constituent Call,1,0,49,56,10,9
+ONTIME,Sanitation,Schedule a Bulk Item Pickup,PWDx,6,5,2,5,6,607,66 O St,Employee Generated,NA,0,77,63,10,9
+ONTIME,Street Lights,Major System Failure,PWDx,3,1B,1,3,3,301,INTERSECTION Atlantic Ave k Cross St,Constituent Call,3,0,41,63,10,17
+ONTIME,Sanitation,Schedule a Bulk Item Pickup,PWDx,4,1C,2,6,8,801,98 E Brookline St,Self Service,NA,0,82,60,10,9

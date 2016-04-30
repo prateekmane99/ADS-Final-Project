@@ -1,0 +1,34 @@
+.navbar{
+background-color:#ffa31a;
+color:white;
+text-decoration:none;
+height:70px;
+}
+
+a.brand{
+color:white;
+text-decoration:none;
+}
+
+.brand h1{
+padding-left:25px;
+padding-top:15px;
+font-size:200%;
+}
+
+.panel{
+font-size:20;
+text-align : center;}
+
+.wrapper{
+margin-top:150px;
+margin-left:120px;
+}
+
+.panel{
+margin-top:25px;
+}
+
+.btn{
+margin-left:15px;
+}
